@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post by <%= post.name %></title>
+</head>
+<body>
+    <header>
+        <h1>Single Post</h1>
+        <nav>
+            <a href="/">Posts</a>
+            <a href="/addnewpost">Add New</a>
+        </nav>
+    </header>
+    <div class="singlepost-container">
+        <h2 class="singlepost-title"><%= post.title %></h3>
+        <p class="singlepost-body"><%= post.body %></p>
+        <div class="singlepost-footer">
+            <h4 class="poster-name"><%= post.name %></h5>
+            <h4 class="like-counter"><%= post.likes %></h5>
+        </div>
+        <a class="delete-button" data-del="<%= post.id %>">Delete</a>
+    </div>
+    <script>
+        const deleteRequest = document.querySelector('a.delete-button');
+        deleteRequest.addEventListener('click', (e) => {
+            const endPoint = `/${deleteRequest.dataset.del}`;
+            fetch(endPoint, {
+                method: 'DELETE',
+            }).then(window.location.href = '/')
+        });
+    </script>
+    <footer>
+        <p>Web Application Design homework 4</p>
+    </footer>
+</body>
+</html>
