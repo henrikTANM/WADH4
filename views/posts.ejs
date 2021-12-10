@@ -18,17 +18,30 @@
             <h3>You did not post anything</h3>
         <% } %>
         <% posts.forEach(post => { %>
-            <a class="post-container" href="/singlepost/<%= post.id %>">
-                <h3 class="post-title"><%= post.title %></h3>
-                <p class="post-body"><%= post.body %></p>
+            <div class="post-container">
+                <a class="postbody-container" href="/singlepost/<%= post.id %>">
+                    <h3 class="post-title"><%= post.title %></h3>
+                    <p class="post-body"><%= post.body %></p>
+                </a>
                 <div class="post-footer">
-                    <h5 class="poster-name"><%= post.name %></h5>
-                    <h5 class="like-counter"><%= post.likes %></h5>
+                    <h5 class="poster-name">Posted by: <%= post.name %></h5>
+                    <div class="like-container" data-put="<%= post.id %>">
+                        <h5 class="like-counter"><%= post.likes %></h5>
+                        <img id="like" src="/assets/like.jpg" alt="like">
+                    </div>
                 </div>
-            </a>
+            </div>
         <% }) %>
-
     </div>
+    <script>
+        const putRequest = document.querySelector('div.like-container');
+        putRequest.addEventListener('click', (e) => {
+            const endPoint = `/${putRequest.dataset.put}`;
+            fetch(endPoint, {
+                method: 'PUT',
+            });
+        });
+    </script>
     <footer>
         <p>Web Application Design homework 4</p>
     </footer>

@@ -13,14 +13,17 @@
             <a href="/addnewpost">Add New</a>
         </nav>
     </header>
-    <div class="singlepost-container">
-        <h2 class="singlepost-title"><%= post.title %></h3>
-        <p class="singlepost-body"><%= post.body %></p>
-        <div class="singlepost-footer">
+    <div class="post-container">
+        <h2 class="post-title"><%= post.title %></h3>
+        <p class="post-body"><%= post.body %></p>
+        <div class="post-footer">
             <h4 class="poster-name"><%= post.name %></h5>
-            <h4 class="like-counter"><%= post.likes %></h5>
+                <div class="like-container">
+                    <h4 class="like-counter"><%= post.likes %></h5>
+                    <img src="/assets/like.jpg">
+                </div>
         </div>
-        <a class="delete-button" data-del="<%= post.id %>">Delete</a>
+        <a class="delete-button" data-del=""="<%= post.id %>">Delete</a>
     </div>
     <script>
         const deleteRequest = document.querySelector('a.delete-button');
@@ -28,7 +31,7 @@
             const endPoint = `/${deleteRequest.dataset.del}`;
             fetch(endPoint, {
                 method: 'DELETE',
-            }).then(window.location.href = '/')
+            }).then(window.location.href = '/');
         });
     </script>
     <footer>

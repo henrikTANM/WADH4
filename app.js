@@ -27,6 +27,16 @@ app.get('/', async(req, res) => {
     }
 });
 
+app.get('/like', async(req, res) => {
+    try {
+        const post = req.params;
+        console.log(post);
+        res.render('like', { post: posts.row });
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 app.get('/singlepost/:id', async(req, res) => {
     try {
         const id = req.params.id;
@@ -43,7 +53,6 @@ app.get('/singlepost/:id', async(req, res) => {
 
 app.delete('/:id', async(req, res) => {
     try {
-        console.log(req.params);
         const { id } = req.params;
         const post = req.body;
         console.log("delete a post request has arrived");
@@ -70,6 +79,21 @@ app.post('/', async(req, res) => {
         res.redirect('/');
     } catch (err) {
         console.error(err.message)
+    }
+});
+
+app.put('/:id', async(req, res) => {
+    try {
+        console.log("update a post request has arrived");
+        const { id } = req.params;
+        const likes = await pool.query(
+            "SELECT likes FROM poststable WHERE id = $1", [id]
+        );
+        const updatepost = await pool.query(
+            "UPDATE poststable SET likes = $2 WHERE id = $1", [id, likes.rows[0].likes + 1]
+        );
+    } catch (err) {
+        console.log(err.message)
     }
 });
 
