@@ -3,27 +3,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
     <title>Post by <%= post.name %></title>
 </head>
 <body>
     <header>
-        <h1>Single Post</h1>
-        <nav>
-            <a href="/">Posts</a>
-            <a href="/addnewpost">Add New</a>
-        </nav>
+        <h1>POST VIEWER</h1>
+        <%- include('../partials/nav.ejs')%>
     </header>
-    <div class="post-container">
-        <h2 class="post-title"><%= post.title %></h3>
-        <p class="post-body"><%= post.body %></p>
-        <div class="post-footer">
-            <h4 class="poster-name"><%= post.name %></h5>
-                <div class="like-container">
-                    <h4 class="like-counter"><%= post.likes %></h5>
-                    <img src="/assets/like.jpg">
+    <div class="singlepost-container">
+        <div class="post-container">
+            <div class="postbody-container">
+                <h3 class="post-title"><%= post.title %></h3>
+                <p class="post-body"><%= post.body %></p>
+            </div>
+            <div class="post-footer">
+                <h4 class="poster-name">Posted by: <%= post.name %></h4>
+                <div class="like-container" data-put="<%= post.id %>">
+                    <h2 class="like-counter"><%= post.likes %></h2>
+                    <img id="like" src="../assets/images/like.png" alt="like">
                 </div>
+            </div>
+            <a class="delete-button" data-del="<%= post.id %>">DELETE</a>
         </div>
-        <a class="delete-button" data-del=""="<%= post.id %>">Delete</a>
     </div>
     <script>
         const deleteRequest = document.querySelector('a.delete-button');
@@ -34,8 +36,6 @@
             }).then(window.location.href = '/');
         });
     </script>
-    <footer>
-        <p>Web Application Design homework 4</p>
-    </footer>
+    <%- include('../partials/footer.ejs')%>
 </body>
 </html>

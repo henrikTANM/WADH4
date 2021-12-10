@@ -3,19 +3,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
     <title>Home</title>
 </head>
 <body>
     <header>
-        <h1>Posts</h1>
-        <nav>
-            <a href="/">Posts</a>
-            <a href="/addnewpost">Add New</a>
-        </nav>
+        <h1>POSTS</h1>
+        <%- include('../partials/nav.ejs')%>
     </header>
     <div class="posts-container">
         <% if (posts.length === 0) { %>
-            <h3>You did not post anything</h3>
+            <h2 class="no-post">You did not post anything!</h2>
         <% } %>
         <% posts.forEach(post => { %>
             <div class="post-container">
@@ -24,26 +22,23 @@
                     <p class="post-body"><%= post.body %></p>
                 </a>
                 <div class="post-footer">
-                    <h5 class="poster-name">Posted by: <%= post.name %></h5>
-                    <div class="like-container" data-put="<%= post.id %>">
-                        <h5 class="like-counter"><%= post.likes %></h5>
-                        <img id="like" src="/assets/like.jpg" alt="like">
-                    </div>
+                    <h4 class="poster-name">Posted by: <%= post.name %></h4>
+                    <a class="like-container" data-put="<%= post.id %>" onclick="putRequest(this.dataset.put, this)">
+                        <h2 class="like-counter"><%= post.likes %></h2>
+                        <img id="like" src="../assets/images/like.png" alt="like">
+                    </a>
                 </div>
             </div>
         <% }) %>
     </div>
     <script>
-        const putRequest = document.querySelector('div.like-container');
-        putRequest.addEventListener('click', (e) => {
-            const endPoint = `/${putRequest.dataset.put}`;
+        function putRequest(id, el) {
+            const endPoint = `/${id}`
             fetch(endPoint, {
                 method: 'PUT',
-            });
-        });
+            }).then(window.location.href = '');
+        };
     </script>
-    <footer>
-        <p>Web Application Design homework 4</p>
-    </footer>
+    <%- include('../partials/footer.ejs')%>
 </body>
 </html>

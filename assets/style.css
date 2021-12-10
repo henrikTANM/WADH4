@@ -1,0 +1,220 @@
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: lightgrey;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: brown;
+    z-index: 1;
+}
+
+header h1 {
+    color: lightgrey;
+    align-self: center;
+    margin: 1%;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    width: 20%;
+    height: 50%;
+    margin: 1%;
+}
+
+nav a {
+    color: lightgrey;
+    text-decoration: none;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: brown;
+    background-color: white;
+    box-shadow: 0px 0px 2px 2px gray;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+    background-color: brown;
+    bottom: 0;
+}
+ 
+footer p {
+    color: lightgrey;
+    align-self: center;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+    min-height: 100vh;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px gray;
+}
+
+.posts-container .no-post{
+    align-self: center;
+    margin: 10%;
+    color: brown;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+    background-color: lightgrey;
+    box-shadow: 0px 0px 5px 5px gray;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.postbody-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 0;
+    text-decoration: none;
+}
+
+.postbody-container h3 {
+    color: black;
+    margin: 2%;
+}
+
+.postbody-container p {
+    word-wrap: break-word;
+    color: black;
+    margin: 2%;
+}
+
+.post-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: flex-end;
+    width: 100%;
+}
+
+.post-footer .poster-name {
+    float: inline;
+    align-self: center;
+    margin-left: 2%;
+}
+
+.post-footer .like-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: center;
+    width: 20%;
+    margin: 2%;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0px 0px 2px 2px gray;
+}
+
+.post-footer .like-container:hover {
+    background-color: brown;
+    box-shadow: 0px 0px 2px 2px black;
+    cursor: pointer;
+}
+
+.post-footer .like-container #like {
+    align-self: center;
+    width: 30%;
+}
+
+.post-footer .like-container .like-counter {
+    align-self: center;
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+.newpost-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 30%;
+    min-height: 100vh;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px gray;
+}
+
+.newpost-container form {
+    display: grid;
+    align-content: center;
+    margin: 5%;
+}
+
+.newpost-container form label {
+    grid-column: 0;
+    font-weight: bold;
+}
+
+.newpost-container form button {
+    grid-column: 0;
+    align-self: center;
+    width: 40%;
+    height: 200%;
+    color: brown;
+    background-color: lightgray;
+    box-shadow: 0px 0px 1px 1px gray;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.newpost-container form button:hover {
+    color: black;
+    background-color: brown;
+    box-shadow: 0px 0px 1px 1px black;
+}
+
+.singlepost-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+    min-height: 100vh;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px gray;
+}
+
+.delete-button {
+    align-self: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 2%;
+    background-color: white;
+    box-shadow: 0px 0px 2px 2px gray;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background-color: brown;
+    box-shadow: 0px 0px 2px 2px black;
+}
+

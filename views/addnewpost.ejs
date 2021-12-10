@@ -3,15 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
     <title>Post Creator</title>
 </head>
 <body>
     <header>
-        <h1>Post Creator</h1>
-        <nav>
-            <a href="/">Posts</a>
-            <a href="/addnewpost">Add New</a>
-        </nav>
+        <h1>POST CREATOR</h1>
+        <%- include('../partials/nav.ejs')%>
     </header>
     <div class="newpost-container">
         <form action="/" method="POST">
@@ -21,11 +19,9 @@
             <textarea type="text" id="body" name="body" rows="4" required></textarea><br><br>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
-            <button type="submit">Submit Post</button>
+            <button type="submit">SUBMIT POST</button>
         </form>
     </div>
-    <footer>
-        <p>Web Application Design homework 4</p>
-    </footer>
+    <%- include('../partials/footer.ejs')%>
 </body>
 </html>
